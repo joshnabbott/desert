@@ -1,8 +1,8 @@
 module ActionView #:nodoc:
   class TemplateFinder #:nodoc:
-    def initialize_with_desert_plugins(*args)
-      self.class.process_view_paths(*args)
-      initialize_without_desert_plugins *args
+    def initialize_with_desert_plugins(base, *paths)
+      self.class.process_view_paths(*paths)
+      initialize_without_desert_plugins base, *paths
 
       Desert::Manager.plugins.reverse.each do |plugin|
         append_view_path plugin.templates_path

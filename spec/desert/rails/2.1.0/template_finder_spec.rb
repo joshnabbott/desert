@@ -11,13 +11,24 @@ if ActionView.const_defined?(:TemplateFinder)
       end
 
       describe "#initialize" do
+        attr_reader :base_object
         before do
           ActionView::TemplateFinder.processed_view_paths.keys.should_not include(@plugin_view_path)
+          @base_object = Object.new
+        end
+
+        after do
+          ActionView::TemplateFinder.processed_view_paths.clear
         end
 
         it "adds plugin view path into the processed view paths" do
-          TemplateFinder.new(@plugin_view_path)
+          TemplateFinder.new(base_object, @plugin_view_path)
           ActionView::TemplateFinder.processed_view_paths.keys.should include(@plugin_view_path)
+        end
+
+        it "does not add the ActionView::Base object" do
+          TemplateFinder.new(base_object, @plugin_view_path)
+          ActionView::TemplateFinder.processed_view_paths.keys.should_not include(base_object)
         end
       end
     end
