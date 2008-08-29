@@ -62,6 +62,13 @@ Rake::GemPackageTask.new(spec) do |pkg|
   pkg.need_zip = true
   pkg.need_tar = true
 end
+desc "Regenerate desert.gemspec file. This file is used by github to autobuild the gem and add it to http://gems.github.com source."
+task(:gemspec) do
+  File.open("#{PKG_NAME}.gemspec", "w") do |gemspec|
+    gemspec.puts spec.to_ruby
+  end
+  puts "#{PKG_NAME}.gemspec generated."
+end
 
 def tag_release
   dashed_version = PKG_VERSION.gsub('.', '-')
