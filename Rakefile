@@ -26,7 +26,7 @@ task(:tag_release) do
 end
 
 PKG_NAME = "desert"
-PKG_VERSION = "0.3.2"
+PKG_VERSION = "0.3.3"
 PKG_FILES = FileList[
   '[A-Z]*',
   '*.rb',
@@ -46,16 +46,16 @@ spec = Gem::Specification.new do |s|
   s.files = PKG_FILES.to_a
   s.require_path = 'lib'
 
-  s.has_rdoc = true
-  s.extra_rdoc_files = [ "README.rdoc", "CHANGES" ]
-  s.rdoc_options = ["--main", "README.rdoc", "--inline-source", "--line-numbers"]
+  #s.has_rdoc = true
+  #s.extra_rdoc_files = [ "README.rdoc", "CHANGES" ]
+  #s.rdoc_options = ["--main", "README.rdoc", "--inline-source", "--line-numbers"]
 
-  s.test_files = Dir.glob('spec/*_spec.rb')
-  s.require_path = 'lib'
+  #s.test_files = Dir.glob('spec/*_spec.rb')
+  #s.require_path = 'lib'
   s.author = "Pivotal Labs"
   s.email = "opensource@pivotallabs.com"
   s.homepage = "http://pivotallabs.com"
-  s.rubyforge_project = "pivotalrb"
+  #s.rubyforge_project = "pivotalrb"
 end
 
 Rake::GemPackageTask.new(spec) do |pkg|

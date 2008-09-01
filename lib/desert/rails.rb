@@ -8,3 +8,4 @@ require "#{dir}/rails/dependencies"
 require "#{dir}/rails/migration"
 
 require "#{dir}/rails/route_set"
+require "#{dir}/rails/observer"
