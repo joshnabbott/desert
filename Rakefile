@@ -32,15 +32,15 @@ PKG_FILES = FileList[
   '*.rb',
   'lib/**/*.rb',
   'generators/**/*',
-  'generators/**/templates/*',
-  'examples/**/*.rb'
+  'generators/**/templates/*'
+  #'examples/**/*.rb'
 ]
 
 spec = Gem::Specification.new do |s|
   s.name = PKG_NAME
   s.version = PKG_VERSION
   s.summary = "Desert is a component framework for Rails that allows your plugins to be packaged as mini Rails apps."
-  s.test_files = "examples/spec_suite.rb"
+  #s.test_files = "examples/spec_suite.rb"
   s.description = s.summary
 
   s.files = PKG_FILES.to_a
