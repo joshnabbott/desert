@@ -26,36 +26,36 @@ task(:tag_release) do
 end
 
 PKG_NAME = "desert"
-PKG_VERSION = "0.3.1"
+PKG_VERSION = "0.3.3"
 PKG_FILES = FileList[
   '[A-Z]*',
   '*.rb',
   'lib/**/*.rb',
   'generators/**/*',
-  'generators/**/templates/*',
-  'examples/**/*.rb'
+  'generators/**/templates/*'
+  #'examples/**/*.rb'
 ]
 
 spec = Gem::Specification.new do |s|
   s.name = PKG_NAME
   s.version = PKG_VERSION
   s.summary = "Desert is a component framework for Rails that allows your plugins to be packaged as mini Rails apps."
-  s.test_files = "examples/spec_suite.rb"
+  #s.test_files = "examples/spec_suite.rb"
   s.description = s.summary
 
   s.files = PKG_FILES.to_a
   s.require_path = 'lib'
 
-  s.has_rdoc = true
-  s.extra_rdoc_files = [ "README.rdoc", "CHANGES" ]
-  s.rdoc_options = ["--main", "README.rdoc", "--inline-source", "--line-numbers"]
+  #s.has_rdoc = true
+  #s.extra_rdoc_files = [ "README.rdoc", "CHANGES" ]
+  #s.rdoc_options = ["--main", "README.rdoc", "--inline-source", "--line-numbers"]
 
-  s.test_files = Dir.glob('spec/*_spec.rb')
-  s.require_path = 'lib'
+  #s.test_files = Dir.glob('spec/*_spec.rb')
+  #s.require_path = 'lib'
   s.author = "Pivotal Labs"
   s.email = "opensource@pivotallabs.com"
   s.homepage = "http://pivotallabs.com"
-  s.rubyforge_project = "pivotalrb"
+  #s.rubyforge_project = "pivotalrb"
 end
 
 Rake::GemPackageTask.new(spec) do |pkg|
